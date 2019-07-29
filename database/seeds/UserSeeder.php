@@ -1,8 +1,9 @@
 <?php
 
 
-use Phinx\Seed\AbstractSeed;
 
+
+use Phinx\Seed\AbstractSeed;
 class UserSeeder extends AbstractSeed
 {
     /**
@@ -15,15 +16,17 @@ class UserSeeder extends AbstractSeed
      */
     public function run()
     {
-    $faker = \Faker\Factory::create();//factory va a crear una fábrica de objetos
-    $data = [];
-    for($i = 0; $i < 50 ; $i++){
-        $data[] =[ 
-        'name' => $faker->name,
-        'email' => $faker->email,
-        'password' => sha1($faker->password),//sha1 es un método de php que encripta
-        'created_at'=>date('Y-m-d H:i:s')
-    ];
-    }
+        $faker = \Faker\Factory::create();//factory va a crear una fábrica de objetos
+        $data=[];
+        for($i=0; $i<50; $i++){
+            $data[] =[
+                'name'=>$faker->name,
+                'email'=>$faker->email,
+                'password'=>$faker->sha1($faker->password),//sha1 es un método de php que encripta
+                'created_at'=>date('Y-m-d H:i:s')
+            ];
+        }     
+        
+        $this->insert('users', $data);
     }
 }
