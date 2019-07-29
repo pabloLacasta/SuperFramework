@@ -17,9 +17,9 @@ environments:
     development:
         adapter: mysql
         host: localhost
-        name: superFramework
+        name: superframework
         user: root
-        pass: ''
+        pass: '44865710'
         port: 3306
         charset: utf8
 
