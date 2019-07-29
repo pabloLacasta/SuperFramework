@@ -1,0 +1,13 @@
+
+{% extends "template.twig.html" %}
+
+{% block body %}
+<!-- Cada vez que generemos una nueva vista hay que eliminar la carpeta views de la carpeta cache. Si no, se qeudan guardadas en cache las vistas anteriores y no se reflejan los cambios 
+Los comentarios han de escribirse dento delos {%block%}, porque si no el twig los considera como elementos y dará error.
+Para poder borrar automáticamente este caché, en el composer.json escribimos: 
+"start" : "@composer delete-cache && php -S localhost:5000 -t=public",
+        "delete-cache" : "if [ -d 'cache/view' ] ; then rmdir -r cache/view; fi" (la versión correcta de WINDOWS)--> 
+
+<h1>Hola MUndoggg!</h1>
+
+{% endblock %}
