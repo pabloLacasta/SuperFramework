@@ -21,7 +21,7 @@ use App\ViewManager;
 class HomeController extends Controller{//heredamos las porpiedades de Controller
     
        public function index(){
-        $viewManager->renderTemplate("index.twig.html");
+        $this->viewManager->renderTemplate("index.twig.html");
 
     }
 }
