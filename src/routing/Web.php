@@ -17,6 +17,8 @@ class Web{
                 $route->addRoute('GET', '/posts', ['App\controllers\PostController','index']);
                 $route->addRoute('GET','/register',['App\controllers\auth\RegisterController','index']);
                 $route->addRoute('POST','/register',['App\controllers\auth\RegisterController','register']);//Post es el método del formulario de registro. REgister es el metodo que se ejecutara cuando se llleve a cabo un POST en /register
+                $route->addRoute('GET','/login',['App\controllers\auth\LoginController','index']);
+                $route->addRoute('POST','/login',['App\controllers\auth\LoginController','login']);//Post es el método del formulario de login. REgister es el metodo que se ejecutara cuando se llleve a cabo un POST en /login
 
             }
         );
