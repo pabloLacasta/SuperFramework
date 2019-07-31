@@ -18,6 +18,7 @@ abstract class Controller{
     protected $viewManager;//para que cuando lo herede el hijo sea privado
     protected $doctrineManager;
     protected $logManager;
+    protected $sessionManager;
 
     public function __construct(ViewManager $viewManager, DoctrineManager $doctrineManager, LogManager $logManager, SessionManager $sessionManager){
         $this->viewManager = $viewManager;

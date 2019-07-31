@@ -2,10 +2,12 @@
 
 namespace App\controllers;
 
-use App\controllers\Controller;
+use App\controllers\ControllerAuth;
+use Kint;
 
-class DashboardController extends Controller{
+class DashboardController extends ControllerAuth{
     public function index(){
-        $this->viewManager->renderTemplate('dashboard.twig.html');
+        Kint::dump($this->user);
+        $this->viewManager->renderTemplate('dashboard.twig.html', ['user'=>$this->user->email]);
     }
 }
