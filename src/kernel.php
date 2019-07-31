@@ -15,8 +15,9 @@ class Kernel
 
     private  $container;
     private $logger;
+    private static $instance = NULL;
 
-    public function __construct(){
+    private function __construct(){
 
         session_start();
 
@@ -24,11 +25,18 @@ class Kernel
 
         $this->logger = $this->container->get(LogManager::class);// le decimos que se coja del container las dependencias de logger. Indicamos lo que estamos cogiendo y lo que es  ( en este caso una clase)
 
+        $this->logger->info("Arrancamos el Server");
+    }
+    private function __clone(){}
+    public static function getInstance(){
+        if(is_null(self::$instance)){
+            self::$instance = new Kernel();
+        }
+        return self::$instance;
     }
     
     
         public function init(){
-            $this->logger->info("Arrancamos el Server");
             $httpMethod = $_SERVER['REQUEST_METHOD'];
             $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
             $routeManager = $this->container->get(RouterManager::class);//llamamos al RouterManager delcontenedor de dependencias
