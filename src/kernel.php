@@ -18,6 +18,8 @@ class Kernel
 
     public function __construct(){
 
+        session_start();
+
         $this->container = $this->createContainer();//llamamos a la función creadorea del contenedor para que se cree
 
         $this->logger = $this->container->get(LogManager::class);// le decimos que se coja del container las dependencias de logger. Indicamos lo que estamos cogiendo y lo que es  ( en este caso una clase)

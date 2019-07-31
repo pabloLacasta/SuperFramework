@@ -17,7 +17,7 @@ class RouterManager {
         //dispatcjer els laarray con los objetso que hay dentro
         //dispatch devuelve array con diferentes elementos.Espera a que los eventos estén activos y ejecuta sus llamadas de retorno.
         $route = $dispatcher->dispatch($requestMethod, $requestUri);
-        \Kint::dump($route);
+        
         switch($route[0]){//route[0] contiene el mensaje del NOT_FOUND
             case \FastRoute\Dispatcher::NOT_FOUND:
             header("HTTP/1.0 404 Not Found");
